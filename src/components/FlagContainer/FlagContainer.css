@@ -6,3 +6,24 @@
   column-gap: 4.666rem;
   justify-content: center;
 }
+
+.flag-container-isLoading-fetchError {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.isLoading,
+.fetchError {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.42px;
+  text-shadow: 1px 1px 1px black;
+  position: relative;
+  bottom: 3rem;
+}
+
+.fetchError {
+  color: red;
+}

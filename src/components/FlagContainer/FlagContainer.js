@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 
 const FlagContainer = () => {
   const [countries, setCountries] = useState([]);
+  const [fetchError, setFetchError] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,18 +15,36 @@ const FlagContainer = () => {
         );
         if (!response.ok) throw Error("Please reload the app");
         const data = await response.json();
+
+        setFetchError("");
         setCountries(data);
-      } catch (err) {}
+      } catch (err) {
+        setFetchError(`Error: ${err.message}`);
+      } finally {
+        setIsLoading(false);
+      }
     };
 
-    fetchData();
-  }, []);
+    setTimeout(() => {
+      fetchData();
+    }, 2000);
+  }, [countries]);
 
   return (
-    <section className="flag-container">
-      {countries.map((country) => {
-        return <FlagCard key={country.name.common} country={country} />;
-      })}
+    <section
+      className={
+        isLoading || fetchError
+          ? "flag-container-isLoading-fetchError"
+          : "flag-container"
+      }
+    >
+      {isLoading && <p className="isLoading">Loading...</p>}
+      {!isLoading && fetchError && <p className="fetchError">{fetchError}</p>}
+      {!isLoading &&
+        !fetchError &&
+        countries.map((country) => {
+          return <FlagCard key={country.name.common} country={country} />;
+        })}
     </section>
   );
 };
