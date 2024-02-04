@@ -1,0 +1,16 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  padding: 2.9rem 5rem 2.75rem;
+  background-color: hsl(0, 0%, 98%);
+  z-index: 1;
+}
+
+.content .input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.9rem;
+}

@@ -1,0 +1,8 @@
+.flag-container {
+  display: grid;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fill, 264px);
+  row-gap: 4.575rem;
+  column-gap: 4.666rem;
+  justify-content: center;
+}

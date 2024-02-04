@@ -1,0 +1,43 @@
+.card {
+  width: 100%;
+  max-width: 264px;
+  box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  background-color: white;
+}
+
+.card .card__img-wrapper {
+  width: 264px;
+  height: 160px;
+}
+
+.card .card__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px 6px 0 0;
+}
+
+.card .card__text {
+  background-color: white;
+  padding: 1.5rem 1.5rem 2.85rem;
+  border-radius: 0 0 6px 6px;
+}
+
+.card .card__text h2 {
+  font-size: 18px;
+  letter-spacing: -0.12px;
+  margin-bottom: 1rem;
+}
+
+.card .card__text p {
+  font-size: 14px;
+  margin-bottom: 0.325rem;
+}
+
+.card .card__text p .highlight {
+  font-weight: 600;
+}
+
+.card .card__text p:last-child {
+  margin-bottom: 0;
+}

@@ -1,0 +1,30 @@
+.filter-form {
+  width: 100%;
+  max-width: 200px;
+  min-width: 180px;
+}
+
+.filter-form label {
+  position: absolute;
+  left: -10000px;
+}
+
+.filter-form select {
+  font-family: inherit;
+  font-size: 14.8px;
+  letter-spacing: -0.3px;
+  padding: 1.1rem 1.2rem 1.1rem;
+  border: none;
+  border-right: 16px solid transparent;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px -4px rgba(0, 0, 0, 0.25);
+  outline: none;
+  width: 100%;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+}
+
+.filter-form select option[value="0"] {
+  display: none;
+}
