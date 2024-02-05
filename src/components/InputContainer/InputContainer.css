@@ -1,0 +1,6 @@
+.flag-page .input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.9rem;
+}

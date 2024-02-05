@@ -1,5 +1,6 @@
 .card {
   width: 100%;
+  height: 100%;
   max-width: 264px;
   box-shadow: 0 0 5px -1px rgba(0, 0, 0, 0.25);
   border-radius: 8px 8px 6px 6px;
@@ -13,4 +14,8 @@
 .card.dark-mode {
   background-color: hsl(209, 23%, 22%);
   color: white;
+}
+
+.flag-container a:any-link {
+  text-decoration: none;
 }
