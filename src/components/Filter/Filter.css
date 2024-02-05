@@ -25,6 +25,10 @@
   font-weight: 600;
 }
 
-.filter-form select option[value="0"] {
+.filter-form select option {
+  font-size: 18px;
+}
+
+.filter-form select option[value=""] {
   display: none;
 }

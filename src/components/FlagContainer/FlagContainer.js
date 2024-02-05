@@ -1,35 +1,10 @@
 import "./FlagContainer.css";
 import FlagCard from "../FlagCard/FlagCard";
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import DataContext from "../context/DataContext";
 
 const FlagContainer = () => {
-  const [countries, setCountries] = useState([]);
-  const [fetchError, setFetchError] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          "https://restcountries.com/v3.1/all?fields=flags,name,region,population,capital"
-        );
-        if (!response.ok) throw Error("Please reload the app");
-        const data = await response.json();
-
-        setFetchError("");
-        setCountries(data);
-      } catch (err) {
-        setFetchError(`Error: ${err.message}`);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    setTimeout(() => {
-      fetchData();
-    }, 2000);
-  }, [countries]);
-
+  const { countries, fetchError, isLoading } = useContext(DataContext);
   return (
     <section
       className={
@@ -39,7 +14,11 @@ const FlagContainer = () => {
       }
     >
       {isLoading && <p className="isLoading">Loading...</p>}
-      {!isLoading && fetchError && <p className="fetchError">{fetchError}</p>}
+      {!isLoading && fetchError && (
+        <p className={fetchError === "Empty" ? "isLoading" : "fetchError"}>
+          {fetchError}
+        </p>
+      )}
       {!isLoading &&
         !fetchError &&
         countries.map((country) => {

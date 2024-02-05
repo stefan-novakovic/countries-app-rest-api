@@ -1,0 +1,11 @@
+.card .card__img-wrapper {
+  width: 264px;
+  height: 160px;
+}
+
+.card .card__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 2px 4px -2px rgba(0, 0, 0, 0.25);
+}

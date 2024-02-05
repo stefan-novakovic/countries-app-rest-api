@@ -1,4 +1,7 @@
 .content {
+  width: 100%;
+  max-width: 3840px;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
