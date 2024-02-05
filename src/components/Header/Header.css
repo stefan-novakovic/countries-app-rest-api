@@ -3,10 +3,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.45rem 4rem 1.6rem;
-  color: black;
-  background-color: white;
   box-shadow: 1px 0 2px rgba(0, 0, 0, 0.25);
   z-index: 2;
+}
+
+.header.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.header.dark-mode {
+  background-color: hsl(209, 23%, 22%);
+  color: white;
 }
 
 .header h1 {
@@ -16,7 +24,7 @@
   margin-inline: 1rem;
 }
 
-.header button {
+.header .dark-mode-btn {
   font-family: inherit;
   font-size: 16px;
   font-weight: 600;
@@ -30,6 +38,24 @@
   align-items: center;
 }
 
-.header button svg {
+.header .dark-mode-btn.light-mode {
+  color: black;
+}
+
+.header .dark-mode-btn.dark-mode {
+  color: white;
+}
+
+.header .dark-mode-btn:hover,
+.header .dark-mode-btn:focus-visible {
+  text-decoration: underline;
+}
+
+.header .dark-mode-btn:active {
+  text-decoration: none;
+}
+
+.header .dark-mode-btn svg {
   margin-right: 0.5rem;
+  fill: white;
 }

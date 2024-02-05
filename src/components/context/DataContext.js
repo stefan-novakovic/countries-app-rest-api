@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useCallback } from "react";
 import { useState, useEffect } from "react";
 
 const DataContext = createContext({});
@@ -9,6 +9,7 @@ export const DataProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
 
   const fetchData = async () => {
     try {
@@ -21,13 +22,32 @@ export const DataProvider = ({ children }) => {
       setCountries(data);
       setFetchError("");
     } catch (err) {
-      setFetchError(`Error: ${err.message}`);
+      setFetchError(err.message);
     } finally {
       setIsLoading(false);
     }
   };
 
-  const fetchSearchedCountries = async () => {
+  const fetchFilteredCountries = useCallback(async () => {
+    if (filter) {
+      try {
+        const response = await fetch(
+          `https://restcountries.com/v3.1/region/${filter}?fields=flags,name,region,population,capital`
+        );
+        if (!response.ok) throw Error("Empty");
+        const data = await response.json();
+
+        setCountries(data);
+        setFetchError("");
+      } catch (err) {
+        setFetchError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+  }, [filter]);
+
+  const fetchSearchedCountries = useCallback(async () => {
     try {
       if (filter.length === 0) {
         const response = await fetch(
@@ -56,30 +76,11 @@ export const DataProvider = ({ children }) => {
         setCountries(filterData);
       }
     } catch (err) {
-      setFetchError(`${err.message}`);
+      setFetchError(err.message);
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const fetchFilteredCountries = async () => {
-    if (filter) {
-      try {
-        const response = await fetch(
-          `https://restcountries.com/v3.1/region/${filter}?fields=flags,name,region,population,capital`
-        );
-        if (!response.ok) throw Error("Empty");
-        const data = await response.json();
-
-        setCountries(data);
-        setFetchError("");
-      } catch (err) {
-        setFetchError(`${err.message}`);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-  };
+  }, [filter, search]);
 
   // INITIAL LOAD
   useEffect(() => {
@@ -97,12 +98,12 @@ export const DataProvider = ({ children }) => {
         fetchFilteredCountries();
       }
     }
-  }, [search, filter]);
+  }, [search, filter, fetchSearchedCountries, fetchFilteredCountries]);
 
   // FILTER
   useEffect(() => {
     fetchFilteredCountries();
-  }, [filter]);
+  }, [fetchFilteredCountries]);
 
   return (
     <DataContext.Provider
@@ -116,6 +117,8 @@ export const DataProvider = ({ children }) => {
         search,
         setSearch,
         setFilter,
+        darkMode,
+        setDarkMode,
       }}
     >
       {children}

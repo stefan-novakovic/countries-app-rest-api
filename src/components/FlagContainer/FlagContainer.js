@@ -4,7 +4,8 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 
 const FlagContainer = () => {
-  const { countries, fetchError, isLoading } = useContext(DataContext);
+  const { countries, fetchError, isLoading, darkMode } =
+    useContext(DataContext);
   return (
     <section
       className={
@@ -13,9 +14,23 @@ const FlagContainer = () => {
           : "flag-container"
       }
     >
-      {isLoading && <p className="isLoading">Loading...</p>}
+      {isLoading && (
+        <p
+          className={darkMode ? "isLoading dark-mode" : "isLoading light-mode"}
+        >
+          Loading...
+        </p>
+      )}
       {!isLoading && fetchError && (
-        <p className={fetchError === "Empty" ? "isLoading" : "fetchError"}>
+        <p
+          className={
+            fetchError === "Empty"
+              ? darkMode
+                ? "isLoading dark-mode"
+                : "isLoading light-mode"
+              : "fetchError"
+          }
+        >
           {fetchError}
         </p>
       )}

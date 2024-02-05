@@ -4,7 +4,7 @@
   grid-template-columns: repeat(auto-fill, 264px);
   row-gap: 4.575rem;
   column-gap: 4.666rem;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 .flag-container-isLoading-fetchError {
@@ -21,6 +21,14 @@
   text-shadow: 1px 1px 1px black;
   position: relative;
   bottom: 3rem;
+}
+
+.isLoading.light-mode {
+  color: black;
+}
+
+.isLoading.dark-mode {
+  color: white;
 }
 
 .fetchError {

@@ -6,8 +6,8 @@ import { DataProvider } from "../context/DataContext";
 function App() {
   return (
     <div className="App">
-      <Header />
       <DataProvider>
+        <Header />
         <Content />
       </DataProvider>
     </div>

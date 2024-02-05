@@ -7,8 +7,15 @@
   flex-grow: 1;
 
   padding: 2.9rem 5rem 2.75rem;
-  background-color: hsl(0, 0%, 98%);
   z-index: 1;
+}
+
+.content.light-mode {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.content.dark-mode {
+  background-color: hsl(207, 26%, 17%);
 }
 
 .content .input-container {

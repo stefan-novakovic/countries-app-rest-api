@@ -3,11 +3,12 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 
 const Filter = () => {
-  const { setFilter } = useContext(DataContext);
+  const { setFilter, darkMode } = useContext(DataContext);
   return (
     <form className="filter-form" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor="filter">Filter by Region</label>
       <select
+        className={darkMode ? "select dark-mode" : "select light-mode"}
         name="filter"
         id="filter"
         onChange={(e) => setFilter(e.target.value)}
