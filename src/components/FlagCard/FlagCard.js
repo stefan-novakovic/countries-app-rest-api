@@ -9,10 +9,7 @@ const FlagCard = ({ country }) => {
   const { darkMode } = useContext(DataContext);
   return (
     <Link to={`/country/${country.name.common}`}>
-      <div
-        id={country.name.common}
-        className={darkMode ? "card dark-mode" : "card light-mode"}
-      >
+      <div className={darkMode ? "card dark-mode" : "card light-mode"}>
         <FlagCardImage country={country} />
         <FlagCardText country={country} />
       </div>

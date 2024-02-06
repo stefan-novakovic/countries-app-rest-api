@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.45rem 4rem 1.6rem;
+  padding: 1.45rem 3.75rem 1.6rem 4rem;
   box-shadow: 1px 0 2px rgba(0, 0, 0, 0.25);
   z-index: 2;
 }
@@ -29,9 +29,11 @@
   font-size: 16px;
   font-weight: 600;
   border: none;
+  outline-color: black;
   background-color: transparent;
   cursor: pointer;
   margin-inline: 1rem;
+  padding: 0.25rem;
 
   display: flex;
   justify-content: center;

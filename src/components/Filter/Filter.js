@@ -3,7 +3,7 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 
 const Filter = () => {
-  const { setFilter, darkMode } = useContext(DataContext);
+  const { setFilter, setSearch, darkMode } = useContext(DataContext);
   return (
     <form className="filter-form" onSubmit={(e) => e.preventDefault()}>
       <label htmlFor="filter">Filter by Region</label>
@@ -11,7 +11,10 @@ const Filter = () => {
         className={darkMode ? "select dark-mode" : "select light-mode"}
         name="filter"
         id="filter"
-        onChange={(e) => setFilter(e.target.value)}
+        onChange={(e) => {
+          setFilter(e.target.value);
+          setSearch("");
+        }}
       >
         <option value="">Filter by Region</option>
         <option value="africa">Africa</option>

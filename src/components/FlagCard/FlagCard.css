@@ -18,4 +18,5 @@
 
 .flag-container a:any-link {
   text-decoration: none;
+  outline-color: black;
 }
