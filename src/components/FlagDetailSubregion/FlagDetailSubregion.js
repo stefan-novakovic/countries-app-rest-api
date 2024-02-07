@@ -1,11 +1,12 @@
-import "./FlagDetailSubregion.css";
+import "./FlagDetailSubRegion.css";
 
-const FlagDetailSubregion = ({ detailedCountry }) => {
+const FlagDetailSubRegion = ({ detailedCountry }) => {
   return (
     <p>
-      Subregion: {detailedCountry.subregion ? detailedCountry.subregion : "N/A"}
+      <span className="highlight">Sub Region: </span>
+      {detailedCountry.subregion ? detailedCountry.subregion : "N/A"}
     </p>
   );
 };
 
-export default FlagDetailSubregion;
+export default FlagDetailSubRegion;

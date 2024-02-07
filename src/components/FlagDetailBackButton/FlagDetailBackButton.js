@@ -1,10 +1,15 @@
 import "./FlagDetailBackButton.css";
+import { LiaLongArrowAltLeftSolid } from "react-icons/lia";
+
 import { Link } from "react-router-dom";
 
 const FlagDetailBackButton = () => {
   return (
-    <Link to="/" style={{ width: "min-content" }}>
-      <button type="button">Back</button>
+    <Link to="/">
+      <button className="back-button" type="button">
+        <LiaLongArrowAltLeftSolid />
+        Back
+      </button>
     </Link>
   );
 };

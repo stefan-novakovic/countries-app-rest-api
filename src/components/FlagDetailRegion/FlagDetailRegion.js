@@ -1,7 +1,12 @@
 import "./FlagDetailRegion.css";
 
 const FlagDetailRegion = ({ detailedCountry }) => {
-  return <p>Region: {detailedCountry.region}</p>;
+  return (
+    <p>
+      <span className="highlight">Region: </span>
+      {detailedCountry.region}
+    </p>
+  );
 };
 
 export default FlagDetailRegion;

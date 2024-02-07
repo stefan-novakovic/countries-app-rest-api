@@ -1,12 +1,12 @@
 import "./FlagDetailPage.css";
 import Missing from "../Missing/Missing";
 import FlagDetailBackButton from "../FlagDetailBackButton/FlagDetailBackButton";
-import FlagDetailImage from "../App/FlagDetailImage/FlagDetailImage";
+import FlagDetailImage from "../FlagDetailImage/FlagDetailImage";
 import FlagDetailName from "../FlagDetailName/FlagDetailName";
 import FlagDetailNativeName from "../FlagDetailNativeName/FlagDetailNativeName";
 import FlagDetailPopulation from "../FlagDetailPopulation/FlagDetailPopulation";
 import FlagDetailRegion from "../FlagDetailRegion/FlagDetailRegion";
-import FlagDetailSubregion from "../FlagDetailSubregion/FlagDetailSubregion";
+import FlagDetailSubRegion from "../FlagDetailSubRegion/FlagDetailSubRegion";
 import FlagDetailCapital from "../FlagDetailCapital/FlagDetailCapital";
 import FlagDetailTopLevelDomain from "../FlagDetailTopLevelDomain/FlagDetailTopLevelDomain";
 import FlagDetailCurrencies from "../FlagDetailCurrencies/FlagDetailCurrencies";
@@ -49,20 +49,33 @@ const FlagDetailPage = () => {
         <Missing detailedFetchError={detailedFetchError} />
       )}
       {!detailedIsLoading && !detailedFetchError && (
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <>
           <FlagDetailBackButton />
 
-          <FlagDetailImage detailedCountry={detailedCountry} />
-          <FlagDetailName detailedCountry={detailedCountry} />
-          <FlagDetailNativeName detailedCountry={detailedCountry} />
-          <FlagDetailPopulation detailedCountry={detailedCountry} />
-          <FlagDetailRegion detailedCountry={detailedCountry} />
-          <FlagDetailSubregion detailedCountry={detailedCountry} />
-          <FlagDetailCapital detailedCountry={detailedCountry} />
-          <FlagDetailTopLevelDomain detailedCountry={detailedCountry} />
-          <FlagDetailCurrencies detailedCountry={detailedCountry} />
-          <FlagDetailLanguages detailedCountry={detailedCountry} />
-        </div>
+          <div className="img-and-text-container">
+            <FlagDetailImage detailedCountry={detailedCountry} />
+            <div className="text-container">
+              <FlagDetailName detailedCountry={detailedCountry} />
+              <div className="info-container">
+                <div>
+                  <FlagDetailNativeName detailedCountry={detailedCountry} />
+                  <FlagDetailPopulation detailedCountry={detailedCountry} />
+                  <FlagDetailRegion detailedCountry={detailedCountry} />
+                  <FlagDetailSubRegion detailedCountry={detailedCountry} />
+                  <FlagDetailCapital detailedCountry={detailedCountry} />
+                </div>
+                <div>
+                  <FlagDetailTopLevelDomain detailedCountry={detailedCountry} />
+                  <FlagDetailCurrencies detailedCountry={detailedCountry} />
+                  <FlagDetailLanguages detailedCountry={detailedCountry} />
+                </div>
+              </div>
+              <p>
+                <span className="highlight">Border Countries: </span>SIMULACIJA
+              </p>
+            </div>
+          </div>
+        </>
       )}
     </section>
   );

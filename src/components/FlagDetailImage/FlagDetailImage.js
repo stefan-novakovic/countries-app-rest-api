@@ -1,9 +1,8 @@
-import "./FlagDetailImage";
+import "./FlagDetailImage.css";
 
 const FlagDetailImage = ({ detailedCountry }) => {
   return (
     <img
-      style={{ width: "500px", height: "350px" }}
       src={
         detailedCountry.flags.svg
           ? detailedCountry.flags.svg

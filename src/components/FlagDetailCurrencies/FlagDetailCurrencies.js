@@ -3,7 +3,7 @@ import "./FlagDetailCurrencies.css";
 const FlagDetailCurrencies = ({ detailedCountry }) => {
   return (
     <p>
-      Currencies:{" "}
+      <span className="highlight">Currencies: </span>
       {detailedCountry.currencies
         ? Object.values(detailedCountry.currencies)
             .map((currency) => {

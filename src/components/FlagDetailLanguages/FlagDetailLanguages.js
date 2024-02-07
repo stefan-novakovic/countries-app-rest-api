@@ -3,9 +3,9 @@ import "./FlagDetailLanguages.css";
 const FlagDetailLanguages = ({ detailedCountry }) => {
   return (
     <p>
-      Languages:{" "}
+      <span className="highlight">Languages: </span>
       {detailedCountry.languages
-        ? Object.values(detailedCountry.languages).join(", ")
+        ? Object.values(detailedCountry.languages).reverse().join(", ")
         : "N/A"}
     </p>
   );

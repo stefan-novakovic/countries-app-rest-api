@@ -1,7 +1,12 @@
 import "./FlagDetailPopulation.css";
 
 const FlagDetailPopulation = ({ detailedCountry }) => {
-  return <p>Population: {detailedCountry.population.toLocaleString()}</p>;
+  return (
+    <p>
+      <span className="highlight">Population: </span>
+      {detailedCountry.population.toLocaleString()}
+    </p>
+  );
 };
 
 export default FlagDetailPopulation;

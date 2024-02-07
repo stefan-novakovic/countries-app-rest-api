@@ -3,7 +3,7 @@ import "./FlagDetailNativeName.css";
 const FlagDetailNativeName = ({ detailedCountry }) => {
   return (
     <p>
-      Native Name:{" "}
+      <span className="highlight">Native Name: </span>
       {detailedCountry.name.nativeName
         ? detailedCountry.name.nativeName[
             Object.keys(detailedCountry.name.nativeName).pop()

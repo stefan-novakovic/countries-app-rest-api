@@ -3,7 +3,7 @@ import "./FlagDetailCapital.css";
 const FlagDetailCapital = ({ detailedCountry }) => {
   return (
     <p>
-      Capital:{" "}
+      <span className="highlight">Capital: </span>
       {detailedCountry.capital
         ? detailedCountry.capital.join(", ")
         : detailedCountry.name.common === "Macau"
