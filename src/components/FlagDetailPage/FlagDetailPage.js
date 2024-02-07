@@ -11,7 +11,8 @@ import FlagDetailCapital from "../FlagDetailCapital/FlagDetailCapital";
 import FlagDetailTopLevelDomain from "../FlagDetailTopLevelDomain/FlagDetailTopLevelDomain";
 import FlagDetailCurrencies from "../FlagDetailCurrencies/FlagDetailCurrencies";
 import FlagDetailLanguages from "../FlagDetailLanguages/FlagDetailLanguages";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import DataContext from "../context/DataContext";
 import { useParams } from "react-router-dom";
 
 const FlagDetailPage = () => {
@@ -19,6 +20,7 @@ const FlagDetailPage = () => {
   const [detailedCountry, setDetailedCountry] = useState({});
   const [detailedFetchError, setDetailedFetchError] = useState("");
   const [detailedIsLoading, setDetailedIsLoading] = useState(true);
+  const { darkMode } = useContext(DataContext);
 
   useEffect(() => {
     const handleCardClick = async () => {
@@ -44,7 +46,11 @@ const FlagDetailPage = () => {
   }, [fullname]);
 
   return (
-    <section className="flag-detail-page">
+    <section
+      className={
+        darkMode ? "flag-detail-page dark-mode" : "flag-detail-page light-mode"
+      }
+    >
       {!detailedIsLoading && detailedFetchError && (
         <Missing detailedFetchError={detailedFetchError} />
       )}

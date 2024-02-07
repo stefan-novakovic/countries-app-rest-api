@@ -1,11 +1,30 @@
+.flag-detail-page {
+  padding: 2.9rem 5rem 2.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+}
+
+.flag-detail-page.light-mode {
+  background-color: white;
+}
+
+.flag-detail-page.dark-mode {
+  background-color: hsl(207, 26%, 17%);
+}
+
 .flag-detail-page a:any-link {
   display: block;
   width: min-content;
   text-decoration: none;
+  margin-top: 2.05rem;
+  margin-bottom: 5rem;
 }
 
 .flag-detail-page .img-and-text-container {
-  max-width: 1440px;
+  width: 100%;
+  max-width: 1366px;
   margin-inline: auto;
   display: flex;
   justify-content: space-between;
