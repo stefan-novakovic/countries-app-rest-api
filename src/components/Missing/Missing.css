@@ -1,0 +1,70 @@
+.missing-page {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding: 2.9rem 5rem 2.75rem;
+}
+
+.missing-page.light-mode {
+  background-color: white;
+  color: black;
+}
+
+.missing-page.dark-mode {
+  background-color: hsl(207, 26%, 17%);
+  color: white;
+}
+
+.missing-page .missing-title {
+  width: max-content;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.missing-page .missing-message {
+  width: max-content;
+  margin-bottom: 2rem;
+}
+
+.missing-page h2,
+.missing-page p {
+  padding-inline: 2rem;
+}
+
+.missing-page p a:any-link {
+  text-decoration: none;
+  border: none;
+  border-radius: 2px;
+  padding: 0.35rem 1.5rem;
+  outline-color: black;
+}
+
+.missing-page p a.light-mode {
+  color: black;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.4);
+}
+
+.missing-page p a.dark-mode {
+  color: white;
+  box-shadow: 0 0 5px 0 white;
+}
+
+.missing-page p a.light-mode:hover,
+.missing-page p a.light-mode:focus-visible {
+  box-shadow: 0 0 4px 3px rgba(0, 0, 0, 0.25);
+}
+
+.missing-page p a.light-mode:active {
+  box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.5);
+}
+
+.missing-page p a.dark-mode:hover,
+.missing-page p a.dark-mode:focus-visible {
+  background-color: rgba(255, 255, 255, 0.025);
+}
+
+.missing-page p a.dark-mode:active {
+  background-color: rgba(255, 255, 255, 0.075);
+}

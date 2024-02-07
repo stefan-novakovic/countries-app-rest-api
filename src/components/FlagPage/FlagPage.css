@@ -12,3 +12,9 @@
 .flag-page.dark-mode {
   background-color: hsl(207, 26%, 17%);
 }
+
+@media screen and (max-width: 767px) {
+  .flag-page {
+    padding: 0 2rem 4.75rem;
+  }
+}

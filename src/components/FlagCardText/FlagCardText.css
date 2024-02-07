@@ -22,3 +22,20 @@
 .card .card__text p:last-child {
   margin-bottom: 0;
 }
+
+@media screen and (max-width: 767px) {
+  .card .card__text {
+    padding: 3.15rem 3rem 5.75rem;
+    border-radius: 0 0 11px 11px;
+  }
+
+  .card .card__text h2 {
+    font-size: 36px;
+    margin-bottom: 2rem;
+  }
+
+  .card .card__text p {
+    font-size: 28px;
+    margin-bottom: 0.6rem;
+  }
+}

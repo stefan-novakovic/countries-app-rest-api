@@ -4,3 +4,12 @@
   align-items: center;
   margin: 2.9rem 0;
 }
+
+@media screen and (max-width: 767px) {
+  .flag-page .input-container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 2.9rem 0 3.85rem;
+  }
+}

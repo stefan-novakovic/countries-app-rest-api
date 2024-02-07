@@ -24,6 +24,7 @@
   border: none;
   border-radius: 2px;
   padding: 0.35rem 1.5rem;
+  outline-color: black;
 }
 
 .flag-detail-page .border-countries-container a.light-mode {
@@ -45,11 +46,11 @@
   box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.5);
 }
 
-.flag-detail-page .border-countries-container a:hover,
-.flag-detail-page .border-countries-container a:focus-visible {
+.flag-detail-page .border-countries-container a.dark-mode:hover,
+.flag-detail-page .border-countries-container a.dark-mode:focus-visible {
   background-color: rgba(255, 255, 255, 0.025);
 }
 
-.flag-detail-page .border-countries-container a:active {
+.flag-detail-page .border-countries-container a.dark-mode:active {
   background-color: rgba(255, 255, 255, 0.075);
 }

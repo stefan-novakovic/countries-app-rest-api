@@ -2,7 +2,6 @@
   display: block;
   width: min-content;
   text-decoration: none;
-  margin-top: 2.05rem;
   margin-bottom: 5rem;
 }
 
@@ -17,6 +16,7 @@
   border: none;
   border-radius: 5px;
   padding: 0.45rem 2.45rem 0.5rem 1.85rem;
+  outline-color: black;
   cursor: pointer;
   animation-name: backButtonOpacity;
   animation-duration: 1.5s;

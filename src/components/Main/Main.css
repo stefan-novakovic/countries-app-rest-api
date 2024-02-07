@@ -1,6 +1,7 @@
 .App .main {
   width: 100%;
   max-width: 3840px;
+  background-color: transparent;
   margin-inline: auto;
   display: flex;
   flex-direction: column;

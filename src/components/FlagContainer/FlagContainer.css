@@ -35,3 +35,19 @@
   color: red;
   font-weight: 600;
 }
+
+@media screen and (max-width: 767px) {
+  .flag-container {
+    grid-auto-rows: auto;
+    grid-template-columns: 1fr;
+    row-gap: 4.75rem;
+    column-gap: 0;
+    justify-content: center;
+    margin-inline: auto;
+  }
+
+  .isLoading,
+  .fetchError {
+    font-size: 2.25rem;
+  }
+}

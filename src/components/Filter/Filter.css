@@ -12,6 +12,7 @@
 .filter-form .select {
   font-family: inherit;
   font-size: 14.8px;
+  font-weight: 600;
   letter-spacing: -0.3px;
   padding: 1.1rem 1.2rem 1.1rem;
   border: none;
@@ -20,11 +21,15 @@
   box-shadow: 0 2px 5px -4px rgba(0, 0, 0, 0.25);
   outline: none;
   width: 100%;
-  font-weight: 600;
 }
 
 .filter-form .select.light-mode {
   background-color: white;
+  color: #a9a9a9;
+}
+
+.filter-form .select.light-mode:hover,
+.filter-form .select.light-mode:focus-visible {
   color: black;
 }
 
@@ -39,4 +44,52 @@
 
 .filter-form .select option[value=""] {
   display: none;
+}
+
+@media screen and (max-width: 767px) {
+  .filter-form {
+    max-width: 400px;
+  }
+
+  .filter-form .select-wrapper {
+    width: 100%;
+    position: relative;
+  }
+
+  .filter-form .select-wrapper:after {
+    content: "";
+    position: absolute;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid;
+    right: 32px;
+    top: calc(50% - 4px);
+  }
+
+  .filter-form .select-wrapper.light-mode:after {
+    border-top-color: black;
+  }
+
+  .filter-form .select-wrapper.dark-mode:after {
+    border-top-color: white;
+  }
+
+  .filter-form .select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-size: 24px;
+    border-radius: 8px;
+    padding: 2rem 2.75rem 2rem;
+    border-right: 32px solid transparent;
+    box-shadow: 0 2px 5px -3px rgba(0, 0, 0, 0.25);
+  }
+
+  .filter-form .select.light-mode {
+    color: black;
+  }
+
+  .filter-form .select option {
+    font-size: 20px;
+  }
 }

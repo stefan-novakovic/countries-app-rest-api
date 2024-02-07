@@ -29,3 +29,15 @@
   text-decoration: none;
   border-radius: 6px;
 }
+
+@media screen and (max-width: 767px) {
+  .card {
+    width: 100%;
+    max-width: 530px;
+    border-radius: 14px 14px 11px 11px;
+  }
+
+  .flag-container a:any-link {
+    border-radius: 11px;
+  }
+}

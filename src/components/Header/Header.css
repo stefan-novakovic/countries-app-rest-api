@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.45rem 3.75rem 1.6rem 4rem;
-  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   z-index: 2;
 }
 
@@ -60,4 +60,25 @@
 .header .dark-mode-btn svg {
   margin-right: 0.5rem;
   fill: white;
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 3.75rem 0.75rem 3.75rem 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .header h1 {
+    font-size: 28px;
+  }
+
+  .header .dark-mode-btn {
+    font-size: 24px;
+  }
+
+  .header .dark-mode-btn svg {
+    width: 30px;
+    height: 30px;
+    margin-right: 1rem;
+  }
 }

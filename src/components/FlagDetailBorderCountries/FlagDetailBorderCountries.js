@@ -33,23 +33,27 @@ export const FlagDetailBorderCountries = ({ detailedCountry }) => {
     <div className="border-countries-container">
       <div className="countries-label">Border Countries: &nbsp;</div>
       <div className="countries">
-        {!isLoading && detailedCountry.borders
-          ? detailedCountry.borders.map((country) => {
-              const countryName = countries.find(
-                (countryObj) => countryObj.cca3 === country
-              ).name.common;
+        {!isLoading && detailedCountry.borders ? (
+          detailedCountry.borders.map((country) => {
+            const countryName = countries.find(
+              (countryObj) => countryObj.cca3 === country
+            ).name.common;
 
-              return (
-                <Link
-                  key={country}
-                  to={`/country/${countryName}`}
-                  className={darkMode ? "dark-mode" : "light-mode"}
-                >
-                  {countryName}
-                </Link>
-              );
-            })
-          : "None"}
+            return (
+              <Link
+                key={country}
+                to={`/country/${countryName}`}
+                className={darkMode ? "dark-mode" : "light-mode"}
+              >
+                {countryName}
+              </Link>
+            );
+          })
+        ) : (
+          <p style={{ marginTop: "4px", position: "relative", right: "10px" }}>
+            None
+          </p>
+        )}
       </div>
     </div>
   );

@@ -60,3 +60,26 @@
 .search-form div .icon.dark-mode {
   fill: white;
 }
+
+@media screen and (max-width: 767px) {
+  .search-form {
+    margin-right: 0px;
+    max-width: none;
+    margin-bottom: 5rem;
+  }
+
+  .search-form div .s-input {
+    font-size: 24px;
+    letter-spacing: 0.2px;
+    border-radius: 8px;
+    padding: 2.1rem 1.2rem 2rem 9.25rem;
+    box-shadow: 0 1px 6px -1px rgba(0, 0, 0, 0.15);
+  }
+
+  .search-form div svg {
+    stroke-width: 6px;
+    width: 35px;
+    height: 35px;
+    left: 4rem;
+  }
+}
