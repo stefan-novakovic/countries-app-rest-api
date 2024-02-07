@@ -11,6 +11,7 @@ import FlagDetailCapital from "../FlagDetailCapital/FlagDetailCapital";
 import FlagDetailTopLevelDomain from "../FlagDetailTopLevelDomain/FlagDetailTopLevelDomain";
 import FlagDetailCurrencies from "../FlagDetailCurrencies/FlagDetailCurrencies";
 import FlagDetailLanguages from "../FlagDetailLanguages/FlagDetailLanguages";
+import FlagDetailBorderCountries from "../FlagDetailBorderCountries/FlagDetailBorderCountries";
 import { useEffect, useState, useContext } from "react";
 import DataContext from "../context/DataContext";
 import { useParams } from "react-router-dom";
@@ -60,7 +61,13 @@ const FlagDetailPage = () => {
 
           <div className="img-and-text-container">
             <FlagDetailImage detailedCountry={detailedCountry} />
-            <div className="text-container">
+            <div
+              className={
+                darkMode
+                  ? "text-container dark-mode"
+                  : "text-container light-mode"
+              }
+            >
               <FlagDetailName detailedCountry={detailedCountry} />
               <div className="info-container">
                 <div>
@@ -76,9 +83,7 @@ const FlagDetailPage = () => {
                   <FlagDetailLanguages detailedCountry={detailedCountry} />
                 </div>
               </div>
-              <p>
-                <span className="highlight">Border Countries: </span>SIMULACIJA
-              </p>
+              <FlagDetailBorderCountries detailedCountry={detailedCountry} />
             </div>
           </div>
         </>

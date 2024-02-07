@@ -3,5 +3,22 @@
   max-width: 560px;
   height: 401px;
 
-  margin-right: 3rem;
+  margin-right: 7rem;
+  animation-name: imageScale;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes imageScale {
+  0% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
