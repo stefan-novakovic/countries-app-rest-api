@@ -18,3 +18,9 @@
     padding: 0 2rem 4.75rem;
   }
 }
+
+@media screen and (max-width: 555px) {
+  .flag-page {
+    padding: 0 1.5rem 3.5rem;
+  }
+}

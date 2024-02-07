@@ -39,3 +39,35 @@
     margin-bottom: 0.6rem;
   }
 }
+
+@media screen and (max-width: 555px) {
+  .card .card__text {
+    padding: 2.75rem 2.5rem 4.5rem;
+  }
+
+  .card .card__text h2 {
+    font-size: 32px;
+    margin-bottom: 1.25rem;
+  }
+
+  .card .card__text p {
+    font-size: 24px;
+    margin-bottom: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  .card .card__text {
+    padding: 2.75rem 2rem 4.5rem;
+  }
+
+  .card .card__text h2 {
+    font-size: 28px;
+    margin-bottom: 1.25rem;
+  }
+
+  .card .card__text p {
+    font-size: 20px;
+    margin-bottom: 0.6rem;
+  }
+}

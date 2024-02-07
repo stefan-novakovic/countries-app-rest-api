@@ -82,3 +82,23 @@
     margin-right: 1rem;
   }
 }
+
+@media screen and (max-width: 555px) {
+  .header {
+    padding: 2.5rem 0.5rem 2.5rem 0.75rem;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .header .dark-mode-btn {
+    font-size: 16px;
+  }
+
+  .header .dark-mode-btn svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+  }
+}

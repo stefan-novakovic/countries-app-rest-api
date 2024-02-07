@@ -41,3 +41,9 @@
     border-radius: 11px;
   }
 }
+
+@media screen and (max-width: 555px) {
+  .card {
+    max-width: 430px;
+  }
+}

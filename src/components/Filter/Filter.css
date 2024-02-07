@@ -93,3 +93,21 @@
     font-size: 20px;
   }
 }
+
+@media screen and (max-width: 555px) {
+  .filter-form .select-wrapper:after {
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid;
+    top: calc(50% - 3px);
+  }
+
+  .filter-form .select {
+    font-size: 18px;
+    padding: 1.25rem 2.25rem;
+  }
+
+  .filter-form .select option {
+    font-size: 16px;
+  }
+}

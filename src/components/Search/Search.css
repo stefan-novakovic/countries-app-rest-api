@@ -83,3 +83,20 @@
     left: 4rem;
   }
 }
+
+@media screen and (max-width: 555px) {
+  .search-form {
+    margin-bottom: 2rem;
+  }
+
+  .search-form div .s-input {
+    font-size: 18px;
+    padding: 1.25rem 1.2rem 1.15rem 4.5rem;
+  }
+
+  .search-form div svg {
+    width: 25px;
+    height: 25px;
+    left: 1.75rem;
+  }
+}

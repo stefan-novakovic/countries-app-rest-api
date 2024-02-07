@@ -13,3 +13,9 @@
     margin: 2.9rem 0 3.85rem;
   }
 }
+
+@media screen and (max-width: 555px) {
+  .flag-page .input-container {
+    margin: 2.5rem 0 3.85rem;
+  }
+}

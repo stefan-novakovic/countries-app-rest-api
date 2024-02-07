@@ -20,3 +20,9 @@
     border-radius: 11px 11px 0 0;
   }
 }
+
+@media screen and (max-width: 555px) {
+  .card .card__img-wrapper {
+    height: 230px;
+  }
+}
