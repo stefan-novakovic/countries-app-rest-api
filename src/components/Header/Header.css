@@ -102,3 +102,20 @@
     margin-right: 0.5rem;
   }
 }
+
+@media screen and (max-width: 395px) {
+  .header h1 {
+    font-size: 18px;
+  }
+
+  .header .dark-mode-btn {
+    font-size: 15px;
+  }
+
+  .header .dark-mode-btn svg {
+    width: 17px;
+    min-width: 17px;
+    height: 17px;
+    min-height: 17px;
+  }
+}

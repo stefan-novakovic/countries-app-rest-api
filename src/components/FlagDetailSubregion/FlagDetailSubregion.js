@@ -1,5 +1,3 @@
-import "./FlagDetailSubRegion.css";
-
 const FlagDetailSubRegion = ({ detailedCountry }) => {
   return (
     <p>

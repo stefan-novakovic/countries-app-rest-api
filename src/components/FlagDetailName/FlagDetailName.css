@@ -3,3 +3,18 @@
   letter-spacing: -0.25px;
   margin-bottom: 1.8rem;
 }
+
+@media screen and (max-width: 1365px) {
+  .flag-detail-page .img-and-text-container h2 {
+    font-size: 44px;
+    letter-spacing: -0.75px;
+    margin-bottom: 2.85rem;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .flag-detail-page .img-and-text-container h2 {
+    font-size: 38px;
+    margin-bottom: 2.25rem;
+  }
+}

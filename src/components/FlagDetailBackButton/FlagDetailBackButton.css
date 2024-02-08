@@ -70,3 +70,35 @@
   height: auto;
   margin-right: 0.5rem;
 }
+
+@media screen and (max-width: 1365px) {
+  .flag-detail-page .back-button-link:any-link {
+    margin-bottom: 8rem;
+  }
+
+  .flag-detail-page .back-button {
+    font-size: 28px;
+    padding: 0.65rem 3rem 0.6rem 2.8rem;
+  }
+
+  .flag-detail-page .back-button svg {
+    width: 45px;
+    margin-right: 0.65rem;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .flag-detail-page .back-button-link:any-link {
+    margin-bottom: 2.25rem;
+  }
+
+  .flag-detail-page .back-button {
+    font-size: 18px;
+    padding: 0.45rem 2rem 0.4rem 1.8rem;
+  }
+
+  .flag-detail-page .back-button svg {
+    width: 22px;
+    margin-right: 0.5rem;
+  }
+}

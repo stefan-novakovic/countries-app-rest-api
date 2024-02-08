@@ -53,7 +53,10 @@ const FlagDetailPage = () => {
       }
     >
       {!detailedIsLoading && detailedFetchError && (
-        <Missing detailedFetchError={detailedFetchError} />
+        <Missing
+          detailedFetchError={detailedFetchError}
+          flagDetailsPage={true}
+        />
       )}
       {!detailedIsLoading && !detailedFetchError && (
         <>

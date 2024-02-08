@@ -1,5 +1,3 @@
-import "./FlagDetailLanguages.css";
-
 const FlagDetailLanguages = ({ detailedCountry }) => {
   return (
     <p>

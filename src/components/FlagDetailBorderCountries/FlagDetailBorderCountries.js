@@ -50,9 +50,7 @@ export const FlagDetailBorderCountries = ({ detailedCountry }) => {
             );
           })
         ) : (
-          <p style={{ marginTop: "4px", position: "relative", right: "10px" }}>
-            None
-          </p>
+          <p className="none-border-countries">None</p>
         )}
       </div>
     </div>

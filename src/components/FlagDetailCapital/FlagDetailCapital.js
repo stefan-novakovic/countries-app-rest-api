@@ -1,5 +1,3 @@
-import "./FlagDetailCapital.css";
-
 const FlagDetailCapital = ({ detailedCountry }) => {
   return (
     <p>

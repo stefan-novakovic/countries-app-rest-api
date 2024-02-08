@@ -1,5 +1,3 @@
-import "./FlagDetailNativeName.css";
-
 const FlagDetailNativeName = ({ detailedCountry }) => {
   return (
     <p>

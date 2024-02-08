@@ -54,3 +54,69 @@
 .flag-detail-page .border-countries-container a.dark-mode:active {
   background-color: rgba(255, 255, 255, 0.075);
 }
+
+.flag-detail-page
+  .border-countries-container
+  .countries
+  .none-border-countries {
+  margin-top: 4px;
+  position: relative;
+  right: 10px;
+}
+
+@media screen and (max-width: 1365px) {
+  .flag-detail-page .border-countries-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .flag-detail-page .border-countries-container .countries-label {
+    font-size: 32px;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 2.1rem;
+  }
+
+  .flag-detail-page .border-countries-container .countries {
+    width: 100%;
+    align-items: center;
+    row-gap: 1.5rem;
+    column-gap: 1.2rem;
+  }
+
+  .flag-detail-page .border-countries-container a:any-link {
+    font-size: 24px;
+    border-radius: 5px;
+    width: 192px;
+    padding: 0.75rem 2rem;
+    display: grid;
+    place-content: center;
+  }
+
+  .flag-detail-page
+    .border-countries-container
+    .countries
+    .none-border-countries {
+    margin-top: 0;
+    right: 0;
+    bottom: 0.25rem;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .flag-detail-page .border-countries-container .countries-label {
+    font-size: 24px;
+    margin-bottom: 1.75rem;
+  }
+
+  .flag-detail-page .border-countries-container .countries {
+    row-gap: 1rem;
+    column-gap: 1rem;
+  }
+
+  .flag-detail-page .border-countries-container a:any-link {
+    font-size: 18px;
+    border-radius: 5px;
+    width: 140px;
+    padding: 0.5rem;
+  }
+}

@@ -1,5 +1,3 @@
-import "./FlagDetailTopLevelDomain.css";
-
 const FlagDetailTopLevelDomain = ({ detailedCountry }) => {
   return (
     <p>

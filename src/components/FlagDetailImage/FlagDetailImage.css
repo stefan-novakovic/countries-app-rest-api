@@ -22,3 +22,26 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 1365px) {
+  .flag-detail-page img {
+    max-width: 680px;
+    height: 458px;
+    margin-right: 0;
+    margin-bottom: 5.45rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .flag-detail-page img {
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 5.45rem;
+  }
+}
+
+@media screen and (max-width: 555px) {
+  .flag-detail-page img {
+    margin-bottom: 2.25rem;
+  }
+}
