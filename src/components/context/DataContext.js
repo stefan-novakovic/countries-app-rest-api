@@ -94,9 +94,7 @@ export const DataProvider = ({ children }) => {
       fetchSearchedCountries();
     } else {
       if (filter.length === 0) {
-        setTimeout(() => {
-          fetchData();
-        }, 3000);
+        fetchData();
       } else {
         fetchFilteredCountries();
       }
@@ -119,6 +117,7 @@ export const DataProvider = ({ children }) => {
         setIsLoading,
         search,
         setSearch,
+        filter,
         setFilter,
         darkMode,
         setDarkMode,
