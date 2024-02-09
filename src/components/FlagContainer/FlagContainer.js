@@ -2,6 +2,7 @@ import "./FlagContainer.css";
 import FlagCard from "../FlagCard/FlagCard";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
+import SkeletonCard from "../Skeleton/SkeletonCard";
 
 const FlagContainer = () => {
   const { countries, fetchError, isLoading, darkMode } =
@@ -9,18 +10,15 @@ const FlagContainer = () => {
   return (
     <section
       className={
-        isLoading || fetchError
-          ? "flag-container-isLoading-fetchError"
+        !isLoading && fetchError
+          ? "flag-container-fetchError"
           : "flag-container"
       }
     >
-      {isLoading && (
-        <p
-          className={darkMode ? "isLoading dark-mode" : "isLoading light-mode"}
-        >
-          Loading...
-        </p>
-      )}
+      {isLoading &&
+        [...Array(20).keys()].map((i) => {
+          return <SkeletonCard key={i} />;
+        })}
       {!isLoading && fetchError && (
         <p
           className={

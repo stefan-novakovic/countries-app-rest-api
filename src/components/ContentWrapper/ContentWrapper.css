@@ -1,0 +1,7 @@
+.App .content-wrapper.light-mode {
+  background-color: hsl(0, 0%, 98%);
+}
+
+.App .content-wrapper.dark-mode {
+  background-color: hsl(207, 26%, 17%);
+}

@@ -1,14 +1,12 @@
 import "./App.css";
-import Header from "../Header/Header";
 import { DataProvider } from "../context/DataContext";
-import Main from "../Main/Main";
+import ContentWrapper from "../ContentWrapper/ContentWrapper";
 
 function App() {
   return (
     <div className="App">
       <DataProvider>
-        <Header />
-        <Main />
+        <ContentWrapper />
       </DataProvider>
     </div>
   );

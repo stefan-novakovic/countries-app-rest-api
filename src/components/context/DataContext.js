@@ -9,7 +9,13 @@ export const DataProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    JSON.parse(localStorage.getItem("dark-mode")) || false
+  );
+
+  useEffect(() => {
+    localStorage.setItem("dark-mode", JSON.stringify(darkMode));
+  }, [darkMode]);
 
   const fetchData = async () => {
     try {
@@ -88,7 +94,9 @@ export const DataProvider = ({ children }) => {
       fetchSearchedCountries();
     } else {
       if (filter.length === 0) {
-        fetchData();
+        setTimeout(() => {
+          fetchData();
+        }, 3000);
       } else {
         fetchFilteredCountries();
       }
