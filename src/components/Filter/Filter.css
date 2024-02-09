@@ -30,6 +30,7 @@
 
 .filter-form .select.light-mode:hover,
 .filter-form .select.light-mode:focus-visible {
+  cursor: pointer;
   color: black;
 }
 

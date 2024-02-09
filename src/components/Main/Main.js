@@ -1,23 +1,30 @@
 import "./Main.css";
+import { lazy, Suspense } from "react";
 import FlagPage from "../FlagPage/FlagPage";
-import FlagDetailPage from "../FlagDetailPage/FlagDetailPage";
 import Missing from "../Missing/Missing";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import SkeletonLoadingPagePulse from "../Skeleton/SkeletonLoadingPagePulse";
+import { Routes, Route } from "react-router-dom";
+const FlagDetailPage = lazy(() => import("../FlagDetailPage/FlagDetailPage"));
 
 const Main = () => {
   return (
     <main className="main">
-      <Router>
-        <Routes>
-          <Route path="/">
-            <Route index element={<FlagPage />} />
-            <Route path="country/:fullname">
-              <Route index element={<FlagDetailPage />} />
-            </Route>
-            <Route path="*" element={<Missing />} />
+      <Routes>
+        <Route path="/">
+          <Route index element={<FlagPage />} />
+          <Route path="country/:fullname">
+            <Route
+              index
+              element={
+                <Suspense fallback={<SkeletonLoadingPagePulse />}>
+                  <FlagDetailPage />
+                </Suspense>
+              }
+            />
           </Route>
-        </Routes>
-      </Router>
+          <Route path="*" element={<Missing />} />
+        </Route>
+      </Routes>
     </main>
   );
 };

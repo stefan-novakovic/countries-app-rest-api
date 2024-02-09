@@ -4,6 +4,7 @@
   align-items: center;
   padding: 1.45rem 3.75rem 1.6rem 4rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
   z-index: 2;
 }
 
@@ -15,6 +16,31 @@
 .header.dark-mode {
   background-color: hsl(209, 23%, 22%);
   color: white;
+}
+
+.header a:any-link {
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.header a:any-link.light-mode {
+  color: black;
+}
+
+.header a:any-link.dark-mode {
+  color: white;
+}
+
+.header a:hover,
+.header a:focus-visible,
+.header .dark-mode-btn:hover,
+.header .dark-mode-btn:focus-visible {
+  filter: opacity(0.7);
+}
+
+.header a:active,
+.header .dark-mode-btn:active {
+  filter: opacity(1);
 }
 
 .header h1 {
@@ -46,15 +72,6 @@
 
 .header .dark-mode-btn.dark-mode {
   color: white;
-}
-
-.header .dark-mode-btn:hover,
-.header .dark-mode-btn:focus-visible {
-  text-decoration: underline;
-}
-
-.header .dark-mode-btn:active {
-  text-decoration: none;
 }
 
 .header .dark-mode-btn svg {
