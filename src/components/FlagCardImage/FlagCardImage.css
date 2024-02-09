@@ -1,4 +1,6 @@
-.card .card__img-wrapper {
+.card .card__img-wrapper,
+.card .card__img-wrapper span {
+  position: relative;
   width: 264px;
   height: 160px;
 }
@@ -11,13 +13,59 @@
 }
 
 @media screen and (max-width: 767px) {
-  .card .card__img-wrapper {
+  .card .card__img-wrapper,
+  .card .card__img-wrapper span {
     width: 100%;
     height: auto;
+    min-height: 200px;
   }
 
   .card .card__img-wrapper img {
     height: auto;
     border-radius: 11px 11px 0 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .card .card__img-wrapper,
+  .card .card__img-wrapper span {
+    min-height: 128px;
+  }
+
+  .card .card__img-wrapper img {
+    min-height: 128px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .card .card__img-wrapper,
+  .card .card__img-wrapper span {
+    min-height: 123px;
+  }
+
+  .card .card__img-wrapper img {
+    min-height: 123px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .card .card__img-wrapper,
+  .card .card__img-wrapper span {
+    min-height: 115px;
+  }
+
+  .card .card__img-wrapper img {
+    min-height: 115px;
+  }
+}
+
+@media screen and (max-width: 345px) {
+  .card .card__img-wrapper,
+  .card .card__img-wrapper span {
+    min-height: 108px;
+  }
+
+  .card .card__img-wrapper img {
+    min-height: 108px;
   }
 }

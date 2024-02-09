@@ -1,14 +1,17 @@
 import "./FlagDetailImage.css";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const FlagDetailImage = ({ detailedCountry }) => {
   return (
-    <img
+    <LazyLoadImage
+      alt={detailedCountry.name.common + " flag"}
       src={
         detailedCountry.flags.svg
           ? detailedCountry.flags.svg
           : detailedCountry.flags.png
       }
-      alt={detailedCountry.name.common + " flag"}
+      effect="blur"
     />
   );
 };

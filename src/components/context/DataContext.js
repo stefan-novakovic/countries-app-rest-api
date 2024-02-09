@@ -82,12 +82,7 @@ export const DataProvider = ({ children }) => {
     }
   }, [filter, search]);
 
-  // INITIAL LOAD
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  // SEARCH
+  // INITIAL LOAD AND SEARCH
   useEffect(() => {
     if (search.length > 0) {
       fetchSearchedCountries();

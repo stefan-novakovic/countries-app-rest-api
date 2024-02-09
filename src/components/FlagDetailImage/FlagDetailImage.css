@@ -1,9 +1,15 @@
-.flag-detail-page img {
+.flag-detail-page .lazy-load-image-background {
   width: 100%;
   max-width: 560px;
   height: 401px;
 
   margin-right: 7rem;
+}
+
+.flag-detail-page img {
+  width: 100%;
+  height: 401px;
+
   animation-name: imageScale;
   animation-duration: 2s;
   animation-timing-function: ease-in-out;
@@ -24,24 +30,27 @@
 }
 
 @media screen and (max-width: 1365px) {
-  .flag-detail-page img {
+  .flag-detail-page .lazy-load-image-background {
     max-width: 680px;
     height: 458px;
+
     margin-right: 0;
     margin-bottom: 5.45rem;
   }
 }
 
 @media screen and (max-width: 749px) {
+  .flag-detail-page .lazy-load-image-background {
+    height: auto;
+  }
+
   .flag-detail-page img {
     height: auto;
-    margin-right: 0;
-    margin-bottom: 5.45rem;
   }
 }
 
 @media screen and (max-width: 555px) {
-  .flag-detail-page img {
-    margin-bottom: 2.25rem;
+  .flag-detail-page .lazy-load-image-background {
+    margin-bottom: 2rem;
   }
 }
