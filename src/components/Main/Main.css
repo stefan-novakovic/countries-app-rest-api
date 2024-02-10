@@ -1,7 +1,7 @@
 .App .main {
   width: 100%;
   max-width: 1920px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   background-color: transparent;
   margin-inline: auto;
   display: flex;

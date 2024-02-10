@@ -21,7 +21,9 @@ const Filter = () => {
             setSearch("");
           }}
         >
-          <option value="">{filter ? filter : "Filter by Region"}</option>
+          <option value="">
+            {filter.length > 0 ? filter : "Filter by Region"}
+          </option>
           <option value="Africa">Africa</option>
           <option value="America">America</option>
           <option value="Asia">Asia</option>

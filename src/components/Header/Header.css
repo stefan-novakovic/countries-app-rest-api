@@ -18,36 +18,33 @@
   color: white;
 }
 
-.header a:any-link {
-  text-decoration: none;
-  background-color: transparent;
-}
-
-.header a:any-link.light-mode {
-  color: black;
-}
-
-.header a:any-link.dark-mode {
-  color: white;
-}
-
-.header a:hover,
-.header a:focus-visible,
-.header .dark-mode-btn:hover,
-.header .dark-mode-btn:focus-visible {
-  filter: opacity(0.7);
-}
-
-.header a:active,
-.header .dark-mode-btn:active {
-  filter: opacity(1);
-}
-
 .header h1 {
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.12px;
   margin-inline: 1rem;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.header h1.light-mode {
+  color: black;
+}
+
+.header h1.dark-mode {
+  color: white;
+}
+
+.header h1:hover,
+.header h1:focus-visible,
+.header .dark-mode-btn:hover,
+.header .dark-mode-btn:focus-visible {
+  filter: opacity(0.7);
+}
+
+.header h1:active,
+.header .dark-mode-btn:active {
+  filter: opacity(1);
 }
 
 .header .dark-mode-btn {

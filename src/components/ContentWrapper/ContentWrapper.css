@@ -1,3 +1,9 @@
+.App .content-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
 .App .content-wrapper.light-mode {
   background-color: hsl(0, 0%, 98%);
 }

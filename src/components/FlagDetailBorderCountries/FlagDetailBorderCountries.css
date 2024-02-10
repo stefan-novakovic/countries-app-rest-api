@@ -81,6 +81,7 @@
     align-items: center;
     row-gap: 1.5rem;
     column-gap: 1.2rem;
+    text-align: center;
   }
 
   .flag-detail-page .border-countries-container a:any-link {

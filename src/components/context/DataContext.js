@@ -24,8 +24,20 @@ export const DataProvider = ({ children }) => {
       );
       if (!response.ok) throw Error("Please reload the app");
       const data = await response.json();
+      const dataSortedByCountryNames = data.sort((a, b) => {
+        const nameA = a.name.common;
+        const nameB = b.name.common;
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
 
-      setCountries(data);
+        return 0;
+      });
+
+      setCountries(dataSortedByCountryNames);
       setFetchError("");
     } catch (err) {
       setFetchError(err.message);
@@ -42,8 +54,20 @@ export const DataProvider = ({ children }) => {
         );
         if (!response.ok) throw Error("Empty");
         const data = await response.json();
+        const dataSortedByCountryNames = data.sort((a, b) => {
+          const nameA = a.name.common;
+          const nameB = b.name.common;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
 
-        setCountries(data);
+          return 0;
+        });
+
+        setCountries(dataSortedByCountryNames);
         setFetchError("");
       } catch (err) {
         setFetchError(err.message);
@@ -61,8 +85,20 @@ export const DataProvider = ({ children }) => {
         );
         if (!response.ok) throw Error("Empty");
         const data = await response.json();
+        const dataSortedByCountryNames = data.sort((a, b) => {
+          const nameA = a.name.common;
+          const nameB = b.name.common;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
 
-        setCountries(data);
+          return 0;
+        });
+
+        setCountries(dataSortedByCountryNames);
         setFetchError("");
       } else {
         const response = await fetch(
@@ -79,7 +115,20 @@ export const DataProvider = ({ children }) => {
         } else {
           setFetchError("");
         }
-        setCountries(filterData);
+        const dataSortedByCountryNames = filterData.sort((a, b) => {
+          const nameA = a.name.common;
+          const nameB = b.name.common;
+          if (nameA < nameB) {
+            return -1;
+          }
+          if (nameA > nameB) {
+            return 1;
+          }
+
+          return 0;
+        });
+
+        setCountries(dataSortedByCountryNames);
       }
     } catch (err) {
       setFetchError(err.message);

@@ -3,7 +3,7 @@
   max-width: 560px;
   height: 401px;
 
-  margin-right: 7rem;
+  margin-right: 7.5rem;
 }
 
 .flag-detail-page img {
@@ -36,6 +36,10 @@
 
     margin-right: 0;
     margin-bottom: 5.45rem;
+  }
+
+  .flag-detail-page img {
+    height: 458px;
   }
 }
 
