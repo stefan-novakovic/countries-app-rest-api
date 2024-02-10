@@ -2,7 +2,7 @@ import "./Skeleton.css";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
 
-const SkeletonLoadingPagePulse = () => {
+const SkeletonLoadingPage = () => {
   const { darkMode } = useContext(DataContext);
   return (
     <div
@@ -17,4 +17,4 @@ const SkeletonLoadingPagePulse = () => {
   );
 };
 
-export default SkeletonLoadingPagePulse;
+export default SkeletonLoadingPage;

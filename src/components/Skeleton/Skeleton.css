@@ -16,7 +16,7 @@
 }
 
 .skeleton-card .skeleton-card__text-container {
-  padding: 1.55rem 1.5rem 3.615rem;
+  padding: 1.7rem 1.5rem 2rem;
   border-radius: 0 0 6px 6px;
 }
 
@@ -76,7 +76,7 @@
   font-weight: 600;
   background-color: transparent;
   position: relative;
-  bottom: 4rem;
+  bottom: 2rem;
 }
 
 .skeleton-page.light-mode {
@@ -92,6 +92,7 @@
 @media screen and (max-width: 767px) {
   .skeleton-card {
     max-width: none;
+    border-radius: 10px;
   }
 
   .skeleton-card .image {
@@ -101,6 +102,7 @@
 
   .skeleton-card .skeleton-card__text-container {
     padding: 4rem 2.5rem 4.7rem;
+    border-radius: 0 0 10px 10px;
   }
 
   .skeleton-card .title {
@@ -111,6 +113,10 @@
   .skeleton-card .text {
     height: 1.5rem;
     margin-bottom: 1.5rem;
+  }
+
+  .skeleton-card .image {
+    border-radius: 10px 10px 0 0;
   }
 }
 

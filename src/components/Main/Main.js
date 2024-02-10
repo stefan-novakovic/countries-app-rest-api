@@ -2,7 +2,7 @@ import "./Main.css";
 import { lazy, Suspense } from "react";
 import FlagPage from "../FlagPage/FlagPage";
 import Missing from "../Missing/Missing";
-import SkeletonLoadingPagePulse from "../Skeleton/SkeletonLoadingPagePulse";
+import SkeletonLoadingPage from "../Skeleton/SkeletonLoadingPage";
 import { Routes, Route } from "react-router-dom";
 const FlagDetailPage = lazy(() => import("../FlagDetailPage/FlagDetailPage"));
 
@@ -16,7 +16,7 @@ const Main = () => {
             <Route
               index
               element={
-                <Suspense fallback={<SkeletonLoadingPagePulse />}>
+                <Suspense fallback={<SkeletonLoadingPage />}>
                   <FlagDetailPage />
                 </Suspense>
               }
