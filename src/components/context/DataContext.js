@@ -24,18 +24,9 @@ export const DataProvider = ({ children }) => {
       );
       if (!response.ok) throw Error("Please reload the app");
       const data = await response.json();
-      const dataSortedByCountryNames = data.sort((a, b) => {
-        const nameA = a.name.common;
-        const nameB = b.name.common;
-        if (nameA < nameB) {
-          return -1;
-        }
-        if (nameA > nameB) {
-          return 1;
-        }
-
-        return 0;
-      });
+      const dataSortedByCountryNames = data.sort((a, b) =>
+        a.name.common.localeCompare(b.name.common)
+      );
 
       setCountries(dataSortedByCountryNames);
       setFetchError("");
@@ -54,18 +45,9 @@ export const DataProvider = ({ children }) => {
         );
         if (!response.ok) throw Error("Empty");
         const data = await response.json();
-        const dataSortedByCountryNames = data.sort((a, b) => {
-          const nameA = a.name.common;
-          const nameB = b.name.common;
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-
-          return 0;
-        });
+        const dataSortedByCountryNames = data.sort((a, b) =>
+          a.name.common.localeCompare(b.name.common)
+        );
 
         setCountries(dataSortedByCountryNames);
         setFetchError("");
@@ -85,18 +67,9 @@ export const DataProvider = ({ children }) => {
         );
         if (!response.ok) throw Error("Empty");
         const data = await response.json();
-        const dataSortedByCountryNames = data.sort((a, b) => {
-          const nameA = a.name.common;
-          const nameB = b.name.common;
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-
-          return 0;
-        });
+        const dataSortedByCountryNames = data.sort((a, b) =>
+          a.name.common.localeCompare(b.name.common)
+        );
 
         setCountries(dataSortedByCountryNames);
         setFetchError("");
@@ -115,18 +88,9 @@ export const DataProvider = ({ children }) => {
         } else {
           setFetchError("");
         }
-        const dataSortedByCountryNames = filterData.sort((a, b) => {
-          const nameA = a.name.common;
-          const nameB = b.name.common;
-          if (nameA < nameB) {
-            return -1;
-          }
-          if (nameA > nameB) {
-            return 1;
-          }
-
-          return 0;
-        });
+        const dataSortedByCountryNames = filterData.sort((a, b) =>
+          a.name.common.localeCompare(b.name.common)
+        );
 
         setCountries(dataSortedByCountryNames);
       }
