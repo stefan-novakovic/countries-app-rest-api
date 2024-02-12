@@ -1,5 +1,6 @@
 import { createContext } from "react";
 import { useState, useEffect, useRef } from "react";
+import useDebounce from "../../hooks/useDebounce";
 
 const DataContext = createContext({});
 
@@ -11,6 +12,7 @@ export const DataProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
+  const debouncedSearch = useDebounce(search, 625);
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("dark-mode")) || false
   );
@@ -70,7 +72,7 @@ export const DataProvider = ({ children }) => {
     const fetchSearchedDataFromAllData = async () => {
       try {
         const response = await fetch(
-          `${baseUrl}/name/${search.toLowerCase().trim()}`
+          `${baseUrl}/name/${debouncedSearch.toLowerCase().trim()}`
         );
         if (!response.ok) throw Error("Empty");
         const data = await response.json();
@@ -99,7 +101,7 @@ export const DataProvider = ({ children }) => {
         const searchedData = data.filter((country) =>
           country.name.common
             .toLowerCase()
-            .includes(search.toLowerCase().trim())
+            .includes(debouncedSearch.toLowerCase().trim())
         );
         if (searchedData.length === 0) {
           setFetchError("Empty");
@@ -121,17 +123,17 @@ export const DataProvider = ({ children }) => {
     };
 
     if (filter.length > 0) {
-      if (search.length > 0) {
+      if (debouncedSearch.length > 0) {
         fetchSearchedDataFromFilteredData();
       } else {
         fetchFilteredData();
       }
-    } else if (filter.length === 0 && search.length > 0) {
+    } else if (filter.length === 0 && debouncedSearch.length > 0) {
       fetchSearchedDataFromAllData();
     } else {
       fetchAllData();
     }
-  }, [search, filter]);
+  }, [debouncedSearch, filter]);
 
   // INFINITE SCROLL
   useEffect(() => {
