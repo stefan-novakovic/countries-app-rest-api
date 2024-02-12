@@ -21,6 +21,7 @@
   box-shadow: 0 2px 5px -4px rgba(0, 0, 0, 0.25);
   outline: none;
   width: 100%;
+  cursor: pointer;
 }
 
 .filter-form .select.light-mode {
@@ -30,12 +31,16 @@
 
 .filter-form .select.light-mode:hover,
 .filter-form .select.light-mode:focus-visible {
-  cursor: pointer;
   color: black;
 }
 
 .filter-form .select.dark-mode {
   background-color: hsl(209, 23%, 22%);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.filter-form .select.dark-mode:hover,
+.filter-form .select.dark-mode:focus-visible {
   color: white;
 }
 

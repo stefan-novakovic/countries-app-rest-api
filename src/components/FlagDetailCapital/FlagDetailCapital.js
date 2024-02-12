@@ -2,7 +2,8 @@ const FlagDetailCapital = ({ detailedCountry }) => {
   return (
     <p>
       <span className="highlight">Capital: </span>
-      {detailedCountry.capital
+      {typeof detailedCountry.capital !== "undefined" &&
+      detailedCountry.capital.length > 0
         ? detailedCountry.capital.join(", ")
         : detailedCountry.name.common === "Macau"
         ? "Macau"

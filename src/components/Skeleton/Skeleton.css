@@ -96,22 +96,22 @@
 
   .skeleton-card .image {
     width: 100%;
-    height: 130px;
+    height: 266px;
   }
 
   .skeleton-card .skeleton-card__text-container {
-    padding: 4rem 2.5rem 4.7rem;
+    padding: 3.75rem 2.5rem 4.7rem;
     border-radius: 0 0 10px 10px;
   }
 
   .skeleton-card .title {
-    height: 2.25rem;
-    margin-bottom: 2.75rem;
+    height: 2.5rem;
+    margin-bottom: 2.65rem;
   }
 
   .skeleton-card .text {
-    height: 1.5rem;
-    margin-bottom: 1.5rem;
+    height: 1.6rem;
+    margin-bottom: 1.4rem;
   }
 
   .skeleton-card .image {
@@ -119,19 +119,51 @@
   }
 }
 
+@media screen and (max-width: 414px) {
+  .skeleton-card .image {
+    height: 182px;
+  }
+
+  .skeleton-card .skeleton-card__text-container {
+    padding: 3.3rem 2.5rem 4.05rem;
+  }
+
+  .skeleton-card .title {
+    height: 2.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .skeleton-card .text {
+    height: 1.6rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
 @media screen and (max-width: 375px) {
   .skeleton-card .image {
-    height: 128px;
+    height: 164px;
+  }
+
+  .skeleton-card .skeleton-card__text-container {
+    padding: 3.3rem 2.5rem 4.9rem;
+  }
+
+  .skeleton-card .title {
+    margin-bottom: 1.5rem;
+  }
+
+  .skeleton-card .text {
+    margin-bottom: 1.25rem;
   }
 }
 
 @media screen and (max-width: 360px) {
   .skeleton-card .image {
-    height: 120px;
+    height: 156px;
   }
 }
 @media screen and (max-width: 345px) {
   .skeleton-card .image {
-    height: 112px;
+    height: 149px;
   }
 }

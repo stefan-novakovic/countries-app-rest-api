@@ -1,5 +1,5 @@
 import { createContext, useCallback } from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const DataContext = createContext({});
 
@@ -12,12 +12,14 @@ export const DataProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("dark-mode")) || false
   );
+  const myInfiniteScrollRef = useRef();
+  const [pageNumber, setPageNumber] = useState(0);
 
   useEffect(() => {
     localStorage.setItem("dark-mode", JSON.stringify(darkMode));
   }, [darkMode]);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       const response = await fetch(
         "https://restcountries.com/v3.1/all?fields=flags,name,region,population,capital"
@@ -28,14 +30,14 @@ export const DataProvider = ({ children }) => {
         a.name.common.localeCompare(b.name.common)
       );
 
-      setCountries(dataSortedByCountryNames);
+      setCountries(dataSortedByCountryNames.slice(0, (pageNumber + 1) * 20));
       setFetchError("");
     } catch (err) {
       setFetchError(err.message);
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [pageNumber]);
 
   const fetchFilteredCountries = useCallback(async () => {
     if (filter) {
@@ -49,7 +51,7 @@ export const DataProvider = ({ children }) => {
           a.name.common.localeCompare(b.name.common)
         );
 
-        setCountries(dataSortedByCountryNames);
+        setCountries(dataSortedByCountryNames.slice(0, (pageNumber + 1) * 20));
         setFetchError("");
       } catch (err) {
         setFetchError(err.message);
@@ -57,7 +59,7 @@ export const DataProvider = ({ children }) => {
         setIsLoading(false);
       }
     }
-  }, [filter]);
+  }, [filter, pageNumber]);
 
   const fetchSearchedCountries = useCallback(async () => {
     try {
@@ -71,7 +73,7 @@ export const DataProvider = ({ children }) => {
           a.name.common.localeCompare(b.name.common)
         );
 
-        setCountries(dataSortedByCountryNames);
+        setCountries(dataSortedByCountryNames.slice(0, (pageNumber + 1) * 20));
         setFetchError("");
       } else {
         const response = await fetch(
@@ -92,14 +94,14 @@ export const DataProvider = ({ children }) => {
           a.name.common.localeCompare(b.name.common)
         );
 
-        setCountries(dataSortedByCountryNames);
+        setCountries(dataSortedByCountryNames.slice(0, (pageNumber + 1) * 20));
       }
     } catch (err) {
       setFetchError(err.message);
     } finally {
       setIsLoading(false);
     }
-  }, [filter, search]);
+  }, [filter, search, pageNumber]);
 
   // INITIAL LOAD AND SEARCH
   useEffect(() => {
@@ -112,12 +114,27 @@ export const DataProvider = ({ children }) => {
         fetchFilteredCountries();
       }
     }
-  }, [search, filter, fetchSearchedCountries, fetchFilteredCountries]);
+  }, [
+    search,
+    filter,
+    fetchSearchedCountries,
+    fetchFilteredCountries,
+    fetchData,
+  ]);
 
   // FILTER
   useEffect(() => {
     fetchFilteredCountries();
   }, [fetchFilteredCountries]);
+
+  // INFINITE SCROLL AND PAGINATION
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) setPageNumber((prev) => prev + 1);
+    });
+    observer.observe(myInfiniteScrollRef.current);
+  }, []);
 
   return (
     <DataContext.Provider
@@ -134,6 +151,7 @@ export const DataProvider = ({ children }) => {
         setFilter,
         darkMode,
         setDarkMode,
+        myInfiniteScrollRef,
       }}
     >
       {children}

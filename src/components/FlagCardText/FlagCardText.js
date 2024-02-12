@@ -14,7 +14,7 @@ const FlagCardText = ({ country }) => {
       </p>
       <p>
         <span className="highlight">Capital: </span>
-        {country.capital
+        {typeof country.capital !== "undefined" && country.capital.length > 0
           ? country.capital.join(", ")
           : country.name.common === "Macau"
           ? "Macau"

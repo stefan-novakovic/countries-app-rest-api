@@ -13,9 +13,22 @@
   background-color: hsl(207, 26%, 17%);
 }
 
+.flag-page .scroll-threshold {
+  width: 100%;
+  height: 0px;
+  background-color: transparent;
+  position: relative;
+  bottom: 45rem;
+  width: "100%";
+}
+
 @media screen and (max-width: 767px) {
   .flag-page {
     padding: 0 2rem 4.75rem;
+  }
+
+  .flag-page .scroll-threshold {
+    bottom: 230rem;
   }
 }
 
