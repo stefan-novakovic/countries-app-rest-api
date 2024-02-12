@@ -6,7 +6,7 @@ import FlagDetailName from "../FlagDetailName/FlagDetailName";
 import FlagDetailNativeName from "../FlagDetailNativeName/FlagDetailNativeName";
 import FlagDetailPopulation from "../FlagDetailPopulation/FlagDetailPopulation";
 import FlagDetailRegion from "../FlagDetailRegion/FlagDetailRegion";
-import FlagDetailSubRegion from "../FlagDetailSubRegion/FlagDetailSubRegion";
+
 import FlagDetailCapital from "../FlagDetailCapital/FlagDetailCapital";
 import FlagDetailTopLevelDomain from "../FlagDetailTopLevelDomain/FlagDetailTopLevelDomain";
 import FlagDetailCurrencies from "../FlagDetailCurrencies/FlagDetailCurrencies";
@@ -77,7 +77,7 @@ const FlagDetailPage = () => {
                   <FlagDetailNativeName detailedCountry={detailedCountry} />
                   <FlagDetailPopulation detailedCountry={detailedCountry} />
                   <FlagDetailRegion detailedCountry={detailedCountry} />
-                  <FlagDetailSubRegion detailedCountry={detailedCountry} />
+                  {/* <FlagDetailSubRegion detailedCountry={detailedCountry} /> */}
                   <FlagDetailCapital detailedCountry={detailedCountry} />
                 </div>
                 <div>
