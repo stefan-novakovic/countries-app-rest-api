@@ -25,6 +25,7 @@
   margin-inline: 1rem;
   background-color: transparent;
   cursor: pointer;
+  outline-color: black;
 }
 
 .header h1.light-mode {
