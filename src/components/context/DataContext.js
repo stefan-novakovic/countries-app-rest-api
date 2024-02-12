@@ -7,7 +7,6 @@ export const DataProvider = ({ children }) => {
   const baseUrl = "https://restcountries.com/v3.1";
   const [allCountries, setAllCountries] = useState([]);
   const [countries, setCountries] = useState([]);
-  const [allFilteredCountries, setAllFilteredCountries] = useState([]);
   const [fetchError, setFetchError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -15,15 +14,17 @@ export const DataProvider = ({ children }) => {
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("dark-mode")) || false
   );
-  const myInfiniteScrollRef = useRef();
   const [pageNumber, setPageNumber] = useState(0);
+  const infiniteScrollRef = useRef();
 
+  // SAVING DARK MODE PREFERENCE (true/false) TO LOCAL STORAGE
   useEffect(() => {
     localStorage.setItem("dark-mode", JSON.stringify(darkMode));
   }, [darkMode]);
 
+  // GET REQUESTS AND LOADING INITIAL DATA
   useEffect(() => {
-    const fetchData = async () => {
+    const fetchAllData = async () => {
       try {
         const response = await fetch(
           `${baseUrl}/all?fields=flags,name,region,population,capital`
@@ -55,9 +56,9 @@ export const DataProvider = ({ children }) => {
           a.name.common.localeCompare(b.name.common)
         );
 
-        setPageNumber(0);
-        setAllFilteredCountries(dataSortedByCountryNames);
+        setAllCountries(dataSortedByCountryNames);
         setCountries(dataSortedByCountryNames.slice(0, 20));
+        setPageNumber(0);
         setFetchError("");
       } catch (err) {
         setFetchError(err.message);
@@ -66,97 +67,84 @@ export const DataProvider = ({ children }) => {
       }
     };
 
-    if (filter.length > 0) {
-      fetchFilteredData();
-    } else {
-      fetchData();
-    }
-  }, [filter]);
+    const fetchSearchedDataFromAllData = async () => {
+      try {
+        const response = await fetch(
+          `${baseUrl}/name/${search.toLowerCase().trim()}`
+        );
+        if (!response.ok) throw Error("Empty");
+        const data = await response.json();
+        const dataSortedByCountryNames = data.sort((a, b) =>
+          a.name.common.localeCompare(b.name.common)
+        );
 
+        setAllCountries(dataSortedByCountryNames);
+        setCountries(dataSortedByCountryNames.slice(0, 20));
+        setPageNumber(0);
+        setFetchError("");
+      } catch (err) {
+        setFetchError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    const fetchSearchedDataFromFilteredData = async () => {
+      try {
+        const response = await fetch(
+          `${baseUrl}/region/${filter}?fields=flags,name,region,population,capital`
+        );
+        if (!response.ok) throw Error("Please reload the app");
+        const data = await response.json();
+        const searchedData = data.filter((country) =>
+          country.name.common
+            .toLowerCase()
+            .includes(search.toLowerCase().trim())
+        );
+        if (searchedData.length === 0) {
+          setFetchError("Empty");
+        } else {
+          setFetchError("");
+        }
+        const dataSortedByCountryNames = searchedData.sort((a, b) =>
+          a.name.common.localeCompare(b.name.common)
+        );
+
+        setAllCountries(dataSortedByCountryNames);
+        setCountries(dataSortedByCountryNames.slice(0, 20));
+        setPageNumber(0);
+      } catch (err) {
+        setFetchError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    if (filter.length > 0) {
+      if (search.length > 0) {
+        fetchSearchedDataFromFilteredData();
+      } else {
+        fetchFilteredData();
+      }
+    } else if (filter.length === 0 && search.length > 0) {
+      fetchSearchedDataFromAllData();
+    } else {
+      fetchAllData();
+    }
+  }, [search, filter]);
+
+  // INFINITE SCROLL
   useEffect(() => {
     setCountries(allCountries.slice(0 * 20, (pageNumber + 1) * 20));
   }, [allCountries, pageNumber]);
 
-  useEffect(() => {
-    if (filter.length > 0)
-      setCountries(allFilteredCountries.slice(0 * 20, (pageNumber + 1) * 20));
-  }, [filter, allFilteredCountries, pageNumber]);
-
-  // const fetchFilteredCountries = useCallback(async () => {
-
-  // const fetchSearchedCountries = useCallback(async () => {
-  //   try {
-  //     if (filter.length === 0) {
-  //       const response = await fetch(
-  //         `${baseUrl}/name/${search.toLowerCase().trim()}`
-  //       );
-  //       if (!response.ok) throw Error("Empty");
-  //       const data = await response.json();
-  //       const dataSortedByCountryNames = data.sort((a, b) =>
-  //         a.name.common.localeCompare(b.name.common)
-  //       );
-
-  //       setCountries(dataSortedByCountryNames);
-  //       setFetchError("");
-  //     } else {
-  //       const response = await fetch(
-  //         `${baseUrl}/region/${filter}?fields=flags,name,region,population,capital`
-  //       );
-  //       if (!response.ok) throw Error("Empty");
-  //       const data = await response.json();
-  //       const filterData = data.filter((item) =>
-  //         item.name.common.toLowerCase().includes(search.toLowerCase().trim())
-  //       );
-
-  //       if (filterData.length === 0) {
-  //         setFetchError("Empty");
-  //       } else {
-  //         setFetchError("");
-  //       }
-  //       const dataSortedByCountryNames = filterData.sort((a, b) =>
-  //         a.name.common.localeCompare(b.name.common)
-  //       );
-
-  //       setCountries(dataSortedByCountryNames);
-  //     }
-  //   } catch (err) {
-  //     setFetchError(err.message);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // }, [filter, search]);
-
-  // // INITIAL LOAD AND SEARCH
-  // useEffect(() => {
-  //   if (search.length > 0) {
-  //     fetchSearchedCountries();
-  //   } else {
-  //     if (filter.length === 0) {
-  //       // AAAAAAAAAAAAAAAAAAAAA
-  //     } else {
-  //       fetchFilteredCountries();
-  //     }
-  //   }
-  // }, [
-  //   search,
-  //   filter,
-  //   fetchSearchedCountries,
-  //   fetchFilteredCountries,
-  //   allCountries,
-  // ]);
-
-  // // FILTER
-  // useEffect(() => {
-  //   fetchFilteredCountries();
-  // }, [fetchFilteredCountries]);
-
-  // INFINITE SCROLL AND PAGINATION
+  // PAGINATION
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
       if (entry.isIntersecting) setPageNumber((prev) => prev + 1);
     });
-    observer.observe(myInfiniteScrollRef.current);
+    observer.observe(infiniteScrollRef.current);
   }, []);
 
   return (
@@ -174,7 +162,7 @@ export const DataProvider = ({ children }) => {
         setFilter,
         darkMode,
         setDarkMode,
-        myInfiniteScrollRef,
+        infiniteScrollRef,
       }}
     >
       {children}
