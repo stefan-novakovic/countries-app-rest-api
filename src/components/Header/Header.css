@@ -1,7 +1,4 @@
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 1.45rem 3.75rem 1.6rem 4rem;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
   position: relative;
@@ -16,6 +13,16 @@
 .header.dark-mode {
   background-color: hsl(209, 23%, 22%);
   color: white;
+}
+
+.header .wrapper {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
 }
 
 .header h1 {

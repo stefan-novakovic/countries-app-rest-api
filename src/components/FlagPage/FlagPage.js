@@ -10,8 +10,10 @@ const FlagPage = () => {
     <section
       className={darkMode ? "flag-page dark-mode" : "flag-page light-mode"}
     >
-      <InputContainer />
-      <FlagContainer />
+      <div className="wrapper">
+        <InputContainer />
+        <FlagContainer />
+      </div>
     </section>
   );
 };

@@ -5,6 +5,13 @@
   padding: 0 5rem 2.75rem;
 }
 
+.flag-page .wrapper {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  background-color: transparent;
+}
+
 .flag-page.light-mode {
   background-color: hsl(0, 0%, 98%);
 }

@@ -1,3 +1,10 @@
+.flag-detail-page .back-button-wrapper {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  background-color: transparent;
+}
+
 .flag-detail-page .back-button-link:any-link {
   display: block;
   width: min-content;
